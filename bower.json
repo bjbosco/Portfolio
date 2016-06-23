@@ -1,7 +1,7 @@
 {
   "name": "brandonbos.co",
   "description": "A test project for me",
-  "main": "index.html",
+  "main": "bower_components/angular/angular.js",
   "authors": [
     "Bandon Bosco"
   ],
