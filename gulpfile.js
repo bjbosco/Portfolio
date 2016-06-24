@@ -23,6 +23,7 @@ var name = {
     js_min_LibraryBundle: 'lib.min.js'
 
 }
+//FTP info
 var user = 'bjbosco@brandonbos.co';
 var pass = 'c1Ms01337!panel';
 var host = 'brandonbos.co';
