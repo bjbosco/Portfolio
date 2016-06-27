@@ -1,15 +1,45 @@
 ﻿<!DOCTYPE html>
-<html lang="en" ng-app>
-    <head>
+<html lang="en" ng-app="app">
+
+<head>
     <meta charset="utf-8">
-    <title>My HTML File</title>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <title>Where is my mind</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+
+    <link rel="stylesheet" href="assets/css/latofonts.css" />
+    <link rel="stylesheet" href="assets/css/latostyle.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
     <script src="assets/js/lib-min.js"></script>
-  </head>
-<body>
+    <script src="assets/js/app.js"></script>
+</head>
 
-    <h1>{{'UNDER ' + 'CONSTRUCTION'}}</h1>
+<body ng-controller="mainController">
 
+    <!-- HEADER AND NAVBAR -->
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Test</a>
+                 </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
+                    <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT AND INJECTED VIEWS -->
+    <div id="main">
+        <!-- angular templating -->
+        <div ng-view></div>
+
+    </div>
 
 </body>
+
 </html>
