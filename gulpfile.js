@@ -13,16 +13,19 @@ var path = {
     root: 'public/',
     appSource: 'public/app/',
     assetSource: 'public/assets/',
-    cssSource: 'assets/css/',
+    cssBuildSource: 'public/assets/css/build/',
     jsDestination: 'public/assets/js/',
     cssDestination: 'public/assets/css/',
+    jsBuildSource: 'public/assets/js/build/',
+
 };
 
 var name = {
     js_AngularApp: 'app.js',
     js_LibraryBundle: 'lib.js',
-    js_min_LibraryBundle: 'lib.min.js'
-
+    js_min_LibraryBundle: 'lib.min.js',
+    js_customCode: 'app-custom.js',
+    css_customCode: 'main.css'
 }
 //FTP info
 var user = 'bjbosco@brandonbos.co';
@@ -42,7 +45,7 @@ gulp.task('js-lib', function () {
     gulp.src(plugins.mainBowerFiles('**/*.js'))
         .pipe(plugins.concat(name.js_LibraryBundle))
         .pipe(plugins.minify())
-        .pipe(gulp.dest(dest));
+        .pipe(gulp.dest(path.jsDestination));
 
 });
 
@@ -57,8 +60,11 @@ gulp.task('js-app', function () {
 
         ]))
         .pipe(plugins.concat(name.js_AngularApp))
-        .pipe(gulp.dest(dest));
+        .pipe(gulp.dest(path.jsDestination));
 
+    gulp.src(path.jsBuildSource + '**/*.js')
+        .pipe(plugins.concat(name.js_customCode))
+        .pipe(gulp.dest(path.jsDestination));
 });
 
 gulp.task('js', ['js-app', 'js-lib']);
@@ -74,8 +80,8 @@ gulp.task('css-lib', function () {
 gulp.task('css-app', function () {
 
     //lib files
-    return gulp.src(plugins.mainBowerFiles('**/*.less'))
-        .pipe(plugins.less())
+  gulp.src(path.cssBuildSource + '**/*.css')
+        .pipe(plugins.concat(name.css_customCode))
         .pipe(gulp.dest(path.cssDestination));
 });
 
@@ -89,7 +95,7 @@ gulp.task('ftp-deploy', function () {
         .pipe(conn.dest(remoteFolder));
 });
 
- gulp.task('default', ['js', 'css']);
+gulp.task('default', ['js', 'css']);
 
 //TOOLS
 function getFtpConnection() {

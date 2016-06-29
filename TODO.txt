@@ -1,9 +1,9 @@
-//Download and install git
-//Set this folder to git repo (maybe make git account?)
-//download bower
-//use bower to install angular, bootstrap, jquery, etc
-//setup build flow
-	//Compile js into one file
-	//minify
-	//compile less (if used)
-	//publish to ftp (gulp has ftp module)
+//setup .less flow
+//organize css better 
+//patch in color scheme variables
+//fix allignment with brand icon and top bar
+
+//add to about me page
+//develop directives for individual skills
+	//read in json object
+	//repeat directive for each in json

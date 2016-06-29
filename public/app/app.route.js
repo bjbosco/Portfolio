@@ -3,8 +3,8 @@
 
             // route for the home page
             .when('/', {
-                templateUrl : 'views/ComingSoon.html',
-                controller  : 'mainController'
+                templateUrl : 'app/components/Home/Home.html',
+                controller  : 'homeController'
             });
 
             // // route for the about page

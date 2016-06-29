@@ -6,8 +6,8 @@ var app = angular.module('app', ['ngRoute']);
 
             // route for the home page
             .when('/', {
-                templateUrl : 'views/ComingSoon.html',
-                controller  : 'mainController'
+                templateUrl : 'app/components/Home/Home.html',
+                controller  : 'homeController'
             });
 
             // // route for the about page
@@ -28,5 +28,10 @@ var app = angular.module('app', ['ngRoute']);
 
         // create a message to display in our view
         $scope.message = 'Everyone come and see how good I look!';
+    });
+app.controller('homeController', function($scope) {
+
+        // create a message to display in our view
+        $scope.message = 'Hello world';
     });
 //Navbar controller
