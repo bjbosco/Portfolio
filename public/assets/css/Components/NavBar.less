@@ -1,0 +1,304 @@
+// Color variables (appears count calculates by raw css)
+@navbar-color0: rgb(219, 174, 24); // Appears 6 times
+@navbar-color1: #ffffff; // Appears 3 times
+@navbar-color2: #1a1a1a; // Appears 2 times
+
+// Width variables (appears count calculates by raw css)
+@navbar-width0: 220px; // Appears 2 times
+@navbar-width1: 100px; // Appears 2 times
+@navbar-width3: 100%; // Appears 7 times
+
+// Height variables (appears count calculates by raw css)
+@navbar-height2: 100%; // Appears 3 times
+
+.nav {
+	.open>a {
+		background-color: transparent;
+		&:hover {
+			background-color: transparent;
+		}
+		&:focus {
+			background-color: transparent;
+		}
+	}
+}
+#wrapper {
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	padding-left: 220px;
+	transition: all 0.5s ease;
+}
+#sidebar-wrapper {
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	background: @navbar-color2;
+	height: @navbar-height2;
+	left: 220px;
+	margin-left: -220px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	transition: all 0.5s ease;
+	width: @navbar-width0;
+	z-index: 1000;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+#page-content-wrapper {
+	padding-top: 70px;
+	width: @navbar-width3;
+}
+#wrapper.toggled {
+	#page-content-wrapper {
+		margin-right: -220px;
+		position: absolute;
+	}
+}
+.sidebar-nav {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	width: @navbar-width0;
+	li {
+		display: inline-block;
+		line-height: 30px;
+		position: relative;
+		width: @navbar-width3;
+		&:before {
+			-moz-transition: width .2s ease-in;
+			-ms-transition: width .2s ease-in;
+			-webkit-transition: width .2s ease-in;
+			background-color: #1c1c1c;
+			content: '';
+			height: @navbar-height2;
+			left: 0;
+			position: absolute;
+			top: 0;
+			transition: width .2s ease-in;
+			width: 3px;
+			z-index: -1;
+		}
+		&:first-child {
+			a {
+				background-color: @navbar-color2;
+				color: @navbar-color1;
+			}
+		}
+		&:nth-child(2) {
+			before {
+				background-color: #ec1b5a;
+			}
+		}
+		&:nth-child(3) {
+			before {
+				background-color: #79aefe;
+			}
+		}
+		&:nth-child(4) {
+			before {
+				background-color: #314190;
+			}
+		}
+		&:nth-child(5) {
+			before {
+				background-color: #279636;
+			}
+		}
+		&:nth-child(6) {
+			before {
+				background-color: #7d5d81;
+			}
+		}
+		&:nth-child(7) {
+			before {
+				background-color: #ead24c;
+			}
+		}
+		&:nth-child(8) {
+			before {
+				background-color: #2d2366;
+			}
+		}
+		&:nth-child(9) {
+			before {
+				background-color: #35acdf;
+			}
+		}
+		&:hover {
+			before {
+				-moz-transition: width .2s ease-in;
+				-ms-transition: width .2s ease-in;
+				-webkit-transition: width .2s ease-in;
+				transition: width .2s ease-in;
+				width: @navbar-width3;
+			}
+		}
+		a {
+			color: #dddddd;
+			display: block;
+			padding: 10px 15px 10px 30px;
+			text-decoration: none;
+		}
+	}
+	li.open {
+		&:hover {
+			before {
+				-moz-transition: width .2s ease-in;
+				-ms-transition: width .2s ease-in;
+				-webkit-transition: width .2s ease-in;
+				transition: width .2s ease-in;
+				width: @navbar-width3;
+			}
+		}
+	}
+	.dropdown-menu {
+		background-color: #222222;
+		border-radius: 0;
+		border: none;
+		box-shadow: none;
+		margin: 0;
+		padding: 0;
+		position: relative;
+		width: @navbar-width3;
+	}
+}
+.sidebar-nav li a:hover, .sidebar-nav li a:active, .sidebar-nav li a:focus, .sidebar-nav li.open a:hover, .sidebar-nav li.open a:active, .sidebar-nav li.open a:focus {
+	background-color: transparent;
+	color: @navbar-color1;
+	text-decoration: none;
+}
+.sidebar-nav>.sidebar-brand {
+	font-size: 20px;
+	height: 65px;
+	line-height: 44px;
+}
+.hamburger {
+	background: transparent;
+	border: none;
+	display: block;
+	height: 32px;
+	margin-left: 15px;
+	position: fixed;
+	top: 20px;
+	width: 32px;
+	z-index: 999;
+	&:hover {
+		outline: none;
+	}
+	&:focus {
+		outline: none;
+	}
+	&:active {
+		outline: none;
+	}
+}
+.hamburger.is-closed {
+	&:before {
+		-webkit-transform: translate3d(0,0,0);
+		-webkit-transition: all .35s ease-in-out;
+		color: @navbar-color1;
+		content: '';
+		display: block;
+		font-size: 14px;
+		line-height: 32px;
+		opacity: 0;
+		text-align: center;
+		width: @navbar-width1;
+	}
+	&:hover {
+		before {
+			-webkit-transform: translate3d(-100px,0,0);
+			-webkit-transition: all .35s ease-in-out;
+			display: block;
+			opacity: 1;
+		}
+		.hamb-top {
+			-webkit-transition: all .35s ease-in-out;
+			top: 0;
+		}
+		.hamb-bottom {
+			-webkit-transition: all .35s ease-in-out;
+			bottom: 0;
+		}
+	}
+	.hamb-top {
+		-webkit-transition: all .35s ease-in-out;
+		background-color: @navbar-color0;
+		top: 5px;
+	}
+	.hamb-middle {
+		background-color: @navbar-color0;
+		margin-top: -2px;
+		top: 50%;
+	}
+	.hamb-bottom {
+		-webkit-transition: all .35s ease-in-out;
+		background-color: @navbar-color0;
+		bottom: 5px;
+	}
+}
+.hamburger.is-closed .hamb-top, .hamburger.is-closed .hamb-middle, .hamburger.is-closed .hamb-bottom, .hamburger.is-open .hamb-top, .hamburger.is-open .hamb-middle, .hamburger.is-open .hamb-bottom  {
+	height: 4px;
+	left: 0;
+	position: absolute;
+	width: @navbar-width3;
+}
+.hamburger.is-open {
+	.hamb-top {
+		-webkit-transform: rotate(45deg);
+		-webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);
+		background-color: @navbar-color0;
+		margin-top: -2px;
+		top: 50%;
+	}
+	.hamb-middle {
+		background-color: @navbar-color0;
+		display: none;
+	}
+	.hamb-bottom {
+		-webkit-transform: rotate(-45deg);
+		-webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);
+		background-color: @navbar-color0;
+		margin-top: -2px;
+		top: 50%;
+	}
+	&:before {
+		-webkit-transform: translate3d(0,0,0);
+		-webkit-transition: all .35s ease-in-out;
+		color: black;
+		content: '';
+		display: block;
+		font-size: 14px;
+		line-height: 32px;
+		opacity: 0;
+		text-align: center;
+		width: @navbar-width1;
+	}
+	&:hover {
+		before {
+			-webkit-transform: translate3d(-100px,0,0);
+			-webkit-transition: all .35s ease-in-out;
+			display: block;
+			opacity: 1;
+		}
+	}
+}
+.overlay {
+	background-color: rgba(250,250,250,.0);
+	bottom: 0;
+	display: none;
+	height: @navbar-height2;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: @navbar-width3;
+	z-index: 1;
+}
+.top-bar {
+	border-bottom:1px solid silver;
+}

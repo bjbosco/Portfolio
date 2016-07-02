@@ -17,6 +17,7 @@ var path = {
     jsDestination: 'public/assets/js/',
     cssDestination: 'public/assets/css/',
     jsBuildSource: 'public/assets/js/build/',
+    lessBuildSource: 'public/assets/less/'
 
 };
 
@@ -74,18 +75,49 @@ gulp.task('css-lib', function () {
 
     //lib files
     return gulp.src(plugins.mainBowerFiles('**/*.less'))
+
         .pipe(plugins.less())
         .pipe(gulp.dest(path.cssDestination));
 });
-gulp.task('css-app', function () {
 
-    //lib files
-  gulp.src(path.cssBuildSource + '**/*.css')
-        .pipe(plugins.concat(name.css_customCode))
+gulp.task('less-app', function () {
+
+
+
+//  gulp.src(path.lessBuildSource + '**/*.less')
+  gulp.src([path.lessBuildSource + "*.less",
+  path.lessBuildSource + "Components/*.less", 
+  path.lessBuildSource + 'Misc/Lato/lato.less',
+  path.lessBuildSource + 'Views/*.less'])
+        // .pipe(plugins.order([
+        //     'main.less',
+        //     'Misc/Lato/lato.less'
+
+        // ]))
+        .pipe(plugins.debug())
+       
+        .pipe(plugins.less())
+         .pipe(plugins.concat(name.css_customCode))
         .pipe(gulp.dest(path.cssDestination));
+
+
 });
 
+// gulp.task('css-app', function () {
 
+//     //lib files
+//   gulp.src(path.cssBuildSource + '**/*.css')
+//         .pipe(plugins.concat(name.css_customCode))
+//         .pipe(gulp.dest(path.cssDestination));
+// });
+
+gulp.task('listen', function(){
+
+return plugins.watch([path.assetSource + '**/*.css', path.assetSource + '**/*.less',path.assetSource + '**/*.js'], function () {
+       gulp.start('js-app');
+       gulp.start('less-app');
+    });
+});
 gulp.task('ftp-deploy', function () {
 
     var conn = getFtpConnection();
