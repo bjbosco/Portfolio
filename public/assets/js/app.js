@@ -8,13 +8,13 @@ var app = angular.module('app', ['ngRoute']);
             .when('/', {
                 templateUrl : 'app/components/Home/Home.html',
                 controller  : 'homeController'
-            });
+            })
 
-            // // route for the about page
-            // .when('/about', {
-            //     templateUrl : 'pages/about.html',
-            //     controller  : 'aboutController'
-            // })
+            // route for the about page
+            .when('/ComingSoon.html', {
+                templateUrl : 'app/components/ComingSoon/ComingSoon.html'//,
+                //controller  : 'homeController'
+            });
 
             // // route for the contact page
             // .when('/contact', {
@@ -23,12 +23,16 @@ var app = angular.module('app', ['ngRoute']);
             // });
     });
 
-  // create the controller and inject Angular's $scope
-    app.controller('mainController', function($scope) {
+// create the controller and inject Angular's $scope
+app.controller('mainController', function ($scope, $location) {
 
-        // create a message to display in our view
-        $scope.message = 'Everyone come and see how good I look!';
-    });
+    // create a message to display in our view
+    $scope.message = 'Everyone come and see how good I look!';
+
+    $scope.navigate = function (path) {
+        $location.path(path);
+    }
+});
 app.controller('homeController', function($scope) {
 
         // create a message to display in our view

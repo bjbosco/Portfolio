@@ -5,13 +5,13 @@
             .when('/', {
                 templateUrl : 'app/components/Home/Home.html',
                 controller  : 'homeController'
-            });
+            })
 
-            // // route for the about page
-            // .when('/about', {
-            //     templateUrl : 'pages/about.html',
-            //     controller  : 'aboutController'
-            // })
+            // route for the about page
+            .when('/ComingSoon.html', {
+                templateUrl : 'app/components/ComingSoon/ComingSoon.html'//,
+                //controller  : 'homeController'
+            });
 
             // // route for the contact page
             // .when('/contact', {
