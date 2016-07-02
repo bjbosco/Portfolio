@@ -84,23 +84,21 @@ gulp.task('less-app', function () {
 
 
 
-//  gulp.src(path.lessBuildSource + '**/*.less')
-  gulp.src([path.lessBuildSource + "*.less",
-  path.lessBuildSource + "Components/*.less", 
-  path.lessBuildSource + 'Misc/Lato/lato.less',
-  path.lessBuildSource + 'Views/*.less'])
+    //  gulp.src(path.lessBuildSource + '**/*.less')
+    gulp.src([path.lessBuildSource + "*.less",
+        path.lessBuildSource + "Components/*.less",
+        path.lessBuildSource + 'Misc/Lato/lato.less',
+        path.lessBuildSource + 'Views/*.less'])
         // .pipe(plugins.order([
         //     'main.less',
         //     'Misc/Lato/lato.less'
 
         // ]))
         .pipe(plugins.debug())
-       
+
         .pipe(plugins.less())
-         .pipe(plugins.concat(name.css_customCode))
+        .pipe(plugins.concat(name.css_customCode))
         .pipe(gulp.dest(path.cssDestination));
-
-
 });
 
 // gulp.task('css-app', function () {
@@ -111,13 +109,27 @@ gulp.task('less-app', function () {
 //         .pipe(gulp.dest(path.cssDestination));
 // });
 
-gulp.task('listen', function(){
 
-return plugins.watch([path.assetSource + '**/*.css', path.assetSource + '**/*.less',path.assetSource + '**/*.js'], function () {
-       gulp.start('js-app');
-       gulp.start('less-app');
-    });
+gulp.task('listen', function () {
+    // gulp.src([path.assetSource + '**/*.css', path.assetSource + '**/*.less', path.assetSource + '**/*.js'])
+    //     .pipe(plugins.ignore([path.cssDestination + name.css_customCode, path.jsDestination + name.js_AngularApp]))
+    //     .pipe(plugins.watch(function () {
+    //         gulp.start('less-app');
+    //         gulp.start('js-app');
+    //     }));
+
+    return plugins.watch([path.assetSource + '**/*.css', path.assetSource + '**/*.less',path.assetSource + '**/*.js',
+    '!' + path.cssDestination + name.css_customCode, '!' + path.jsDestination + name.js_AngularApp, '!' + path.jsDestination + name.js_customCode
+    ], function () {
+           gulp.start('js-app');
+           gulp.start('less-app');
+        });
+
+
 });
+
+
+
 gulp.task('ftp-deploy', function () {
 
     var conn = getFtpConnection();
