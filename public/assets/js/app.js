@@ -1,27 +1,29 @@
 var app = angular.module('app', ['ngRoute']);
 
   
- app.config(function($routeProvider) {
-        $routeProvider
+app.config(function ($routeProvider) {
+    $routeProvider
 
-            // route for the home page
-            .when('/', {
-                templateUrl : 'app/components/Home/Home.html',
-                controller  : 'homeController'
-            })
+        // route for the home page
+        // .when('/', {
+        //     templateUrl : 'app/components/AboutMe/AboutMe.html',
+        //     controller  : 'aboutMeController'
+        // })
 
-            // route for the about page
-            .when('/ComingSoon.html', {
-                templateUrl : 'app/components/ComingSoon/ComingSoon.html'//,
-                //controller  : 'homeController'
-            });
+        .when('/', {
+            templateUrl: 'app/components/ComingSoon/ComingSoon.html'
+            
+        })
+        .when('/AboutMe.html', {
+            templateUrl: 'app/components/AboutMe/AboutMe.html',
+            controller: 'aboutMeController'
+        })
+        .when('/ComingSoon.html', {
+            templateUrl: 'app/components/ComingSoon/ComingSoon.html'//,
+            //controller  : 'homeController'
+        });
 
-            // // route for the contact page
-            // .when('/contact', {
-            //     templateUrl : 'pages/contact.html',
-            //     controller  : 'contactController'
-            // });
-    });
+});
 
 // create the controller and inject Angular's $scope
 app.controller('mainController', function ($scope, $location) {
@@ -33,9 +35,10 @@ app.controller('mainController', function ($scope, $location) {
         $location.path(path);
     }
 });
-app.controller('homeController', function($scope) {
+app.controller('aboutMeController', function($scope, $location) {
 
         // create a message to display in our view
         $scope.message = 'Hello world';
+        $scope.skills = _skills;
     });
 //Navbar controller

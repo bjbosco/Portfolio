@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Where is my mind</title>
+    <title>Dog will hunt</title>
 
     <!--CSS-->
     <link rel="stylesheet" href="assets/css/bootstrap.css" />
@@ -18,13 +18,13 @@
     <script src="assets/js/app-custom.js"></script>
 </head>
 
-<body id="wrapper" ng-controller="mainController" class="toggled">
+<body id="wrapper" ng-controller="mainController" >
 
     <nav class="navbar  navbar-fixed-top" id="sidebar-wrapper" role="navigation">
         <ul class="nav sidebar-nav">
             <li class="sidebar-brand">
-                <a href="" ng-click="navigate('')">
-                       Brand
+                <a href="" ng-click="navigate('ComingSoon.html')">
+                       BrandonBos.co
                     </a>
             </li>
             <li>
@@ -44,19 +44,20 @@
             <li>
                 <a href="" ng-click="navigate('ComingSoon.html')">Dynamics CRM</a>
             </li>
-            <li>
+            <!--<li>
                 <a href="" ng-click="navigate('ComingSoon.html')">Fitness</a>
-            </li>
+            </li>-->
             <li>
                 <a href="" ng-click="navigate('ComingSoon.html')">Follow me</a>
             </li>
         </ul>
     </nav>
 
+    <!--Delete this if top bar is implimented-->
+    <div class="view-container" style="padding-top:50px;">
 
-
-    <div ng-view></div>
-
+        <div ng-view></div>
+    </div>
 
 </body>
 

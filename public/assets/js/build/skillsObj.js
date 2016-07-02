@@ -1,4 +1,3 @@
-//
 var _skills = [
     {
         name: 'Dynamics CRM',
