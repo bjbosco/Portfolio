@@ -85,10 +85,11 @@ gulp.task('less-app', function () {
 
 
     //  gulp.src(path.lessBuildSource + '**/*.less')
-    gulp.src([path.lessBuildSource + "*.less",
-        path.lessBuildSource + "Components/*.less",
-        path.lessBuildSource + 'Misc/Lato/lato.less',
-        path.lessBuildSource + 'Views/*.less'])
+    // gulp.src([path.lessBuildSource + "*.less",
+    //     path.lessBuildSource + "Components/*.less",
+    //     path.lessBuildSource + 'Misc/Lato/lato.less',
+    //     path.lessBuildSource + 'Views/*.less'])
+    gulp.src(path.lessBuildSource + 'main.less')
         // .pipe(plugins.order([
         //     'main.less',
         //     'Misc/Lato/lato.less'
