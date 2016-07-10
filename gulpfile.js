@@ -111,20 +111,19 @@ gulp.task('less-app', function () {
 
 
 gulp.task('listen', function () {
-    // gulp.src([path.assetSource + '**/*.css', path.assetSource + '**/*.less', path.assetSource + '**/*.js'])
-    //     .pipe(plugins.ignore([path.cssDestination + name.css_customCode, path.jsDestination + name.js_AngularApp]))
-    //     .pipe(plugins.watch(function () {
-    //         gulp.start('less-app');
-    //         gulp.start('js-app');
-    //     }));
 
-    return plugins.watch([path.assetSource + '**/*.css', path.assetSource + '**/*.less',path.assetSource + '**/*.js',
+    // return plugins.watch([path.assetSource + '**/*.css', path.assetSource + '/less/**/*.less',path.assetSource + 'js/build/**/*.js', 'public/**/*.html',
+    // '!' + path.cssDestination + name.css_customCode, '!' + path.jsDestination + name.js_AngularApp, '!' + path.jsDestination + name.js_customCode
+    // ], function () {
+    //        gulp.start('js-app');
+    //        gulp.start('less-app');
+    //     });
+return plugins.watch([path.assetSource + '**/*.*', path.appSource + '**/*.*',
     '!' + path.cssDestination + name.css_customCode, '!' + path.jsDestination + name.js_AngularApp, '!' + path.jsDestination + name.js_customCode
     ], function () {
            gulp.start('js-app');
            gulp.start('less-app');
         });
-
 
 });
 
