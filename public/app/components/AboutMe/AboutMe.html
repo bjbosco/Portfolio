@@ -14,24 +14,13 @@
             </div>
         </div>
 
-        <div ng-repeat="skillrow in skills">
-            <div class="row skill-row">
-                <div ng-repeat="skill in skillrow">
+        <div id="skillGrid" ng-repeat="skillrow in skills">
+            <div id="row-{{$index}}" class="row skill-row">
+                <div ng-repeat="s in skillrow">
                     <div class="col-sm-12 col-md-4">
-                        <div class="skill-container">
-                            <div class="skill-title">
-                                <h2>
-                                    {{skill.name}}
-                                </h2>
-                            </div>
 
-                            <div class="skill-grid">
-                                {{skill.level}}
-                            </div>
-                            <div class="skill-description">
-                                {{skill.message}}
-                            </div>
-                        </div>
+                    <skilltile skill="s" id="{{s.id}}"></skilltile>
+
                     </div>
                 </div>
             </div>

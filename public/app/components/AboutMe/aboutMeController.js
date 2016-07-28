@@ -1,13 +1,5 @@
 app.controller('aboutMeController', function ($scope, $location) {
-
-    // create a message to display in our view
-    $scope.message = 'Hello world';
     $scope.skills = orderSkills(_skills);
-
-
-
-
-
 
     function orderSkills(skillList) {
         var skillArray = [];

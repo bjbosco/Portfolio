@@ -17,26 +17,8 @@
   font-size: 2em;
   margin: 20px 0 20px 0;
 }
-.skill-container {
-  padding: 5px 20px 20px 20px;
-  height: 300px;
-  background-color: white;
-}
 .skill-row {
   margin-top: 20px;
-}
-.skill-title {
-  font-family: Latobold;
-  padding: 5px 10px 5px 0px;
-  border-bottom: 1px solid #89877A;
-}
-.skill-line {
-  border-bottom: 1px solid grey;
-  width: 100%;
-}
-.skill-description {
-  font-family: Lato-thin;
-  font-size: 1em;
 }
 .overlay {
   background-color: #000000;
@@ -468,6 +450,33 @@
   border-bottom: 1px solid silver;
 }
 /*source: http://bootsnipp.com/snippets/featured/fancy-sidebar-navigation*/
+.skill-container {
+  padding: 5px 20px 20px 20px;
+  height: 300px;
+  background-color: #1E1C24;
+  box-shadow: 1px 1px 1px #888888;
+  color: #9F9DA5;
+}
+.skill-title {
+  font-family: Latobold;
+  padding: 5px 10px 0px 0px;
+}
+.skill-description {
+  font-family: Lato-thin;
+  font-size: 1em;
+}
+.skill-bar {
+  margin: 10px 0px 10px 0px;
+  padding: 10px 5px 10px 5px;
+  background-color: black;
+}
+.skill-bar div {
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px 7px 3px 3px;
+  margin: 1px;
+  color: white;
+}
 body {
   background-color: #F1F2F1;
   position: relative;
